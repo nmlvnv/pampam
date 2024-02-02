@@ -61,6 +61,12 @@ Function change_dir
 	get_config_info
 }
 
+Function change_base_dir
+{
+	[System.Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms") | Out-Null
+	[System.Windows.Forms.MessageBox]::Show($this, "1. Stop all services`r`n2. Close the board`r`n3. Move it around")
+}
+
 Function get_config_info() {
 	$hash = decrypt-dir (Ini-To-Hash -ini "$base_dir\config.ini")
 
@@ -155,6 +161,16 @@ $c6Button.Size = New-Object System.Drawing.Size(60, $height_c)
 $c6Button.Text = "Change"
 $c6Button.Add_Click({change_dir "vhosts"})
 $Form.Controls.Add($c6Button)
+
+$i_c++
+
+# Add Button
+$c7Button = New-Object System.Windows.Forms.Button
+$c7Button.Location = New-Object System.Drawing.Point($margin, ($y_c + $height_c * $i_c + $padding_c * $i_c))
+$c7Button.Size = New-Object System.Drawing.Size(60, $height_c)
+$c7Button.Text = "Change"
+$c7Button.Add_Click({change_base_dir})
+$Form.Controls.Add($c7Button)
 
 # Add Label
 $infoLabel = New-Object System.Windows.Forms.Label
