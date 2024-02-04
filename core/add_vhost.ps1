@@ -127,5 +127,9 @@ $new_conf = $new_conf.replace('${project_dir}/test', $webroot_dir_std.replace('\
 $new_conf = $new_conf.replace('test.dev.win', $domain_std)
 Mutex-Write "$vhosts_dir\$domain.conf" $new_conf
 
+$arr_status = & "$((get-item $PSScriptRoot).Fullname)\status.ps1" silent
+$str_status = $arr_status -join "`r`n"
 & "$((get-item $PSScriptRoot).Fullname)\stop.ps1" silent
-& "$((get-item $PSScriptRoot).Fullname)\start.ps1" silent
+if(!$str_status.contains(" not ")) {
+	& "$((get-item $PSScriptRoot).Fullname)\start.ps1" silent
+}
