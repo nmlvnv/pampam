@@ -1,6 +1,8 @@
 PamPam
 =================================================================
 
+![image](https://github.com/nmlvnv/pampam/assets/158515130/53e38536-6119-4ff3-9abe-31df6c219396)
+
 Intro
 ----------------------------
 
@@ -33,7 +35,7 @@ Install & Run
 
 ## Portable
 
-You can move it around. Then it still run normally
+You can move it around. Then it still runs normally
 
 ## Text-Based
 
